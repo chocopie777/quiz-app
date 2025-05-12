@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  margin: 0;
+}
+
+html,
+body,
+#app {
+  height: 100% !important;
+}
+
+
+
