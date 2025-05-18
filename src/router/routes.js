@@ -4,6 +4,6 @@ import ResultView from "@/views/ResultView.vue";
 
 export const routes = [
   { path: '/', component: HomeView },
-  { path: '/quiz', component: QuizView},
+  { path: '/quiz/:id', component: QuizView},
   { path: '/result', component: ResultView},
 ];
