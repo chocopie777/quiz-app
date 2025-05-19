@@ -6,6 +6,7 @@ export const useQuizStore = defineStore('quiz', () => {
   const questions = ref([])
   const isLoading = ref(false)
   const isError = ref(false)
+  // получение списка вопросов по id категории из api
   async function getQuestions(categoryId) {
     try {
       isError.value = false
@@ -31,13 +32,15 @@ export const useQuizStore = defineStore('quiz', () => {
       isError.value = true
     }
   }
-
+  // сохранить выбранный ответ на вопрос
   function setSelectedAnswer(id, selectedAnswer) {
     questions.value[id].selectedAnswer = selectedAnswer
   }
 
+  // вычисление количества вопросов
   const numberOfQuestions = computed(() => questions.value.length)
 
+  // вычисление количества правильных ответов
   const correctAnswersCount = computed(() => {
     let correctCount = 0
     for(let item of questions.value) {

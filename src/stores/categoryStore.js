@@ -1,10 +1,11 @@
 import {defineStore} from "pinia";
-import {computed, ref} from "vue";
+import {ref} from "vue";
 
 export const useCategoryStore = defineStore('category', () => {
   const categories = ref([])
   const isLoading = ref(false)
 
+  // получение всех категорий из api
   async function getCategories() {
     try {
       isLoading.value = false
@@ -17,7 +18,5 @@ export const useCategoryStore = defineStore('category', () => {
     }
   }
 
-  const categoryNameById = computed((id) => categories.value.filter(item => item.id === id))
-
-  return {categories, getCategories, categoryNameById, isLoading}
+  return {categories, getCategories, isLoading}
 })
