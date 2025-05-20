@@ -18,5 +18,11 @@ export const useCategoryStore = defineStore('category', () => {
     }
   }
 
-  return {categories, getCategories, isLoading}
+  // получение категорий по имени
+  function getCategoriesByName(name) {
+    const result = categories.value.filter((item) => item.name.toLowerCase().includes(name.toLowerCase()))
+    categories.value = result
+  }
+
+  return {categories, getCategories, isLoading, getCategoriesByName}
 })

@@ -16,9 +16,12 @@ const router = useRouter()
 // вычисление названия категории по id
 const categoryNameById = computed(() => categoryStore.categories.filter(item => item.id === Number(route.params.id)))
 
+// получение категорий
 categoryStore.getCategories()
+// получение вопросов по id выбранной категории
 quizStore.getQuestions(route.params.id)
 
+//обработчик кнопки следующего вопроса
 function nextQuestion() {
   transitionName.value = 'slide-next'
   if(quizStore.questions[currentQuestionNumber.value - 1].selectedAnswer) {
@@ -32,6 +35,7 @@ function nextQuestion() {
   }
 }
 
+//обработчик кнопки предыдущего вопроса
 function previousQuestion() {
   transitionName.value = 'slide-prev'
   if(currentQuestionNumber.value > 1) {
@@ -51,7 +55,10 @@ function previousQuestion() {
     </template>
     <div class="mt-5">
       <template v-if="quizStore.isLoading">
-      <span class="block mb-2 text-blue-500 font-medium">Question: {{currentQuestionNumber}}/{{quizStore.numberOfQuestions}}</span>
+      <div class="flex justify-between">
+        <span class="block mb-2 text-blue-500 font-medium">Question: {{currentQuestionNumber}}/{{quizStore.numberOfQuestions}}</span>
+        <RouterLink to="/" class="font-medium text-red-500 focus:outline-blue-400">Quit</RouterLink>
+      </div>
         <div class="flex">
           <Transition :name="transitionName" mode="out-in">
             <div class="w-full" :key="currentQuestionNumber">
@@ -73,8 +80,8 @@ function previousQuestion() {
           </div>
         </Transition>
         <div class="flex justify-end">
-          <button class="bg-blue-400 text-white p-2 text-lg rounded-md mr-2 w-25 cursor-pointer hover:bg-blue-500 disabled:bg-gray-400" @click="previousQuestion" :disabled="currentQuestionNumber == 1">Previous</button>
-          <button class="bg-blue-400 text-white p-2 text-lg rounded-md w-25 cursor-pointer hover:bg-blue-500" @click="nextQuestion">Next</button>
+          <button class="bg-blue-400 text-white p-2 text-lg rounded-md mr-2 w-25 cursor-pointer hover:bg-blue-500 disabled:bg-gray-400 focus:outline-black" @click="previousQuestion" :disabled="currentQuestionNumber == 1">Previous</button>
+          <button class="bg-blue-400 text-white p-2 text-lg rounded-md w-25 cursor-pointer hover:bg-blue-500 focus:outline-black" @click="nextQuestion">Next</button>
         </div>
       </template>
       <template v-else>
