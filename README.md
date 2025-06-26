@@ -1,35 +1,32 @@
-9# quiz-app
+# Quiz-App
+Проект представляет собой веб-приложение игра-викторина с использованием Vue 3 и opentdb API.
 
-This template should help get you started developing with Vue 3 in Vite.
+[**_<ins>Ссылка на приложение</ins>_**](https://quiz-app-two-rho-56.vercel.app/)
 
-## Recommended IDE Setup
+## 🚀 Демо 
+*Пример работы приложения* 
+![Демо проекта](demo.gif)  
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🛠 Технологии  
+- **Frontend**: Vue 3, Tailwind, Pinia, Vue Router, Vite
+- **Backend**: API https://opentdb.com/
+- **Deploy**: Vercel  
 
-## Customize configuration
+## ⚡️ Функционал 
+✅ Выбор категории викторины
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+✅ Выбор ответов викторины
 
-## Project Setup
+✅ Итоговый подсчет очков
 
-```sh
+✅ Анимация переходов между вопросами
+
+✅ Адаптивный интерфейс
+
+## 🚀 Установка  
+```bash
+git clone https://github.com/chocopie777/quiz-app.git
+
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
